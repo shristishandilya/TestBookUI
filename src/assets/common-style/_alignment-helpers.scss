@@ -1,0 +1,105 @@
+// These variables, we can use as SCSS interpolation anywhere in same file
+$m: "margin";
+$p: "padding";
+$t: "top";
+$r: "right";
+$b: "bottom";
+$l: "left";
+$step: 5; // it provides interval gap
+
+// Global margin adjustment classes for 0-30. interval of 5px
+@for $i from 0 through 60 / $step {
+  .m#{$i*$step} {
+    #{$m}: #{($i*$step)/16* 1rem};
+  }
+
+  .mt#{$i*$step} {
+    #{$m}-#{$t}: #{($i*$step)/16* 1rem};
+  }
+
+  .mr#{$i*$step} {
+    #{$m}-#{$r}: #{($i*$step)/16* 1rem};
+  }
+
+  .mb#{$i*$step} {
+    #{$m}-#{$b}: #{($i*$step)/16* 1rem};
+  }
+
+  .ml#{$i*$step} {
+    #{$m}-#{$l}: #{($i*$step)/16* 1rem};
+  }
+
+  .mtb#{$i*$step} {
+    #{$m}-#{$t}: #{($i*$step)/16* 1rem};
+    #{$m}-#{$b}: #{($i*$step)/16* 1rem};
+  }
+
+  .mrl#{$i*$step} {
+    #{$m}-#{$r}: #{($i*$step)/16* 1rem};
+    #{$m}-#{$l}: #{($i*$step)/16* 1rem};
+  }
+}
+
+// END Global margin adjustment classes for 0-30.
+
+// Global padding adjustment classes for 0-30.
+@for $i from 0 through 60 / $step {
+  .p#{$i*$step} {
+    #{$p}: #{($i*$step)/16* 1rem};
+  }
+  .pt#{$i*$step} {
+    #{$p}-#{$t}: #{($i*$step)/16* 1rem};
+  }
+
+  .pr#{$i*$step} {
+    #{$p}-#{$r}: #{($i*$step)/16* 1rem};
+  }
+
+  .pb#{$i*$step} {
+    #{$p}-#{$b}: #{($i*$step)/16* 1rem};
+  }
+
+  .pl#{$i*$step} {
+    #{$p}-#{$l}: #{($i*$step)/16* 1rem};
+  }
+
+  .ptb#{$i*$step} {
+    #{$p}-#{$t}: #{($i*$step)/16* 1rem};
+    #{$p}-#{$b}: #{($i*$step)/16* 1rem};
+  }
+
+  .prl#{$i*$step} {
+    #{$p}-#{$l}: #{($i*$step)/16* 1rem};
+    #{$p}-#{$r}: #{($i*$step)/16* 1rem};
+  }
+}
+
+
+@include breakpoint(tablet) {
+
+  .ptb25 {
+    padding-top: rem(15px);
+    padding-bottom: rem(15px);
+  }
+  .pt25 {
+    padding-top: rem(15px);
+  }
+  .prl25 {
+    padding-left: rem(15px);
+    padding-right: rem(15px);
+  }
+  .p20 {
+    padding: rem(10px);
+  }
+  .p25 {
+    padding: rem(15px);
+  }
+
+  .mb40 {
+    margin-bottom: rem(30px);
+  }
+  .mr25 {
+    margin-right: rem(15px);
+  }
+}
+

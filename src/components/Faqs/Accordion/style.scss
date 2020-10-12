@@ -1,0 +1,65 @@
+@import 'src/assets/common-style/variables.scss';
+
+
+$accordion: accordion;
+
+.#{$accordion} {
+  border-radius: 4px;
+  box-shadow: -7px 8px 16px $shadow-1;
+
+  &, &-tab {
+    overflow: hidden;
+  }
+
+  &-tab {
+    &:not(:last-of-type) {
+      border-bottom: 1px solid $grey-1;
+    }
+
+    &-label {
+      display: flex;
+      justify-content: space-between;
+      background: $white;
+      cursor: pointer;
+      /* Icon */
+      &:hover {
+        color: $black;
+      }
+
+      &::after {
+        content: url(../../../assets/svgs/collapse.svg);
+        width: 1.1em;
+        height: 1.1em;
+        position: relative;
+        right: 15px;
+        transition: all .35s;
+      }
+    }
+
+    &-content {
+      max-height: 0;
+      transition: all .35s;
+    }
+
+    input[type="checkbox"] {
+      opacity: 0;
+      z-index: z(input-button);
+
+      &:checked {
+        + .accordion-tab-label {
+          color: $black;
+          z-index: z(input-label);
+
+          &::after {
+            content: url("../../../assets/svgs/expand.svg");
+          }
+        }
+
+        ~ .accordion-tab-content {
+          max-height: 110px;
+        }
+      }
+    }
+  }
+}
+

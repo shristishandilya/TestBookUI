@@ -1,0 +1,73 @@
+$font-bold: 700;
+
+$font: font;
+
+html {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  @include breakpoint(tablet) {
+    font-size: rem(14px);
+    line-height: rem(22px);
+  }
+}
+
+.#{$font} {
+  &24 {
+    font-size: rem(24px);
+    line-height: rem(38px);
+    @include breakpoint(tablet) {
+      font-size: rem(21px);
+      line-height: rem(32px);
+    }
+  }
+
+  &20 {
+    font-size: rem(20px);
+    line-height: rem(30px);
+    @include breakpoint(tablet) {
+      font-size: rem(18px);
+      line-height: rem(26px);
+    }
+  }
+
+  &18 {
+    font-size: rem(18px);
+    line-height: rem(26px);
+    @include breakpoint(tablet) {
+      font-size: rem(16px);
+      line-height: rem(24px);
+    }
+  }
+
+  &16 {
+    font-size: rem(16px);
+    line-height: rem(24px);
+    @include breakpoint(tablet) {
+      font-size: rem(14px);
+      line-height: rem(22px);
+    }
+  }
+
+  &14 {
+    font-size: rem(14px);
+    line-height: rem(22px);
+    @include breakpoint(tablet) {
+      font-size: rem(13px);
+      line-height: rem(18px);
+    }
+  }
+
+  &12 {
+    font-size: rem(12px);
+    line-height: rem(18px);
+  }
+
+
+  &-bold {
+    font-weight: $font-bold;
+  }
+}
+
+
+

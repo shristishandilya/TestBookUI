@@ -1,0 +1,97 @@
+@import "../../../../assets/common-style/variables.scss";
+
+$pass: pass;
+
+.#{$pass} {
+  &-list {
+    border: 1px solid $grey-2;
+    border-radius: 4px;
+    min-height: 122px;
+    transition: all 250ms ease;
+
+    button {
+      background-color: $dark-blue;
+      color: $white;
+      border: 0;
+    }
+  }
+
+  &-validity {
+    text-align: left;
+  }
+
+  &-cards {
+    input[type="radio"] {
+      opacity: 0;
+      z-index: z(input-button);
+
+      ~ .radio-label {
+        width: 1.2em;
+        height: 1.2em;
+        z-index: z(input-label);
+
+        &:before {
+          content: "";
+          background: $white;
+          border-radius: 100%;
+          border: 1px solid $grey-3;
+          display: inline-block;
+          width: 1.2em;
+          height: 1.2em;
+          position: relative;
+          top: -0.2em;
+          margin-right: 1em;
+          vertical-align: top;
+          cursor: pointer;
+          text-align: center;
+          transition: all 250ms ease;
+        }
+      }
+
+      &:checked {
+        ~ .radio-label {
+          &:before {
+            background-color: $light-green;
+            border: 2px solid $light-green;
+            box-shadow: inset 0 0 0 4px $white;
+          }
+        }
+
+        ~ .pass-list {
+          border: 2px solid $light-green;
+
+          button {
+            background-color: $light-green;
+          }
+        }
+      }
+
+      &:focus {
+        ~ .radio-label {
+          &:before {
+            outline: none;
+            border-color: $light-green;
+          }
+        }
+      }
+
+      &:disabled {
+        ~ .radio-label {
+          &:before {
+            box-shadow: inset 0 0 0 4px $white;
+            border-color: lighten($grey-3, 25%);
+            background: lighten($grey-3, 25%);
+          }
+        }
+      }
+
+      ~ .radio-label {
+        &:empty {
+          &:before {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}

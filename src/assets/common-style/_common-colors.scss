@@ -1,0 +1,41 @@
+@import 'variables.scss';
+
+body {
+  color: $black;
+}
+
+$text: text;
+$bg: bg;
+
+.#{$text} {
+  &-black {
+    color: $black;
+  }
+
+  &-secondary {
+    color: $grey-4;
+  }
+
+  &-secondary-light {
+    color: $grey-3;
+  }
+
+  &-secondary-dark {
+    color: $grey-5;
+  }
+
+  &-link {
+    color: $theme-blue;
+  }
+}
+
+.#{$bg} {
+  &-white {
+    background-color: $white;
+  }
+
+  &-foreground {
+    background-color: $grey-0;
+  }
+}
+

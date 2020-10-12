@@ -1,0 +1,22 @@
+@import '../../assets/common-style/variables.scss';
+
+header {
+  border-bottom: 1px solid $grey-1;
+  position: sticky;
+  z-index: z('page-header');
+  height: 90px;
+  @include breakpoint(tablet) {
+    height: 50px;
+    .hamburger {
+      border: 0;
+      background-color: transparent;
+    }
+  }
+}
+
+.page-header {
+  @include breakpoint(minXlTablet) {
+    justify-content: space-between;
+  }
+
+}

@@ -1,0 +1,7 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.5">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M10 1L3 4.27273V9.18182C3 13.7227 5.98667 17.9691 10 19C14.0133 17.9691 17 13.7227 17 9.18182V4.27273L10 1ZM10 9.99182H15.4444C15.0322 13.3627 12.8933 16.3655 10 17.3064V10H4.55556V5.33636L10 2.79182V9.99182Z"
+              fill="#86A1AE"/>
+    </g>
+</svg>

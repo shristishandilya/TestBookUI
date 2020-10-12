@@ -1,0 +1,175 @@
+@import "src/assets/common-style/variables.scss";
+
+
+$alltest: test;
+
+.#{$alltest} {
+  &-header {
+    @include breakpoint(minXlTablet) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &-card {
+    @include breakpoint(minXlTablet) {
+      background-color: $white;
+      border-radius: 4px;
+    }
+    @include breakpoint(tablet) {
+      &.tab-layout {
+        &.layout {
+          flex-direction: column-reverse;
+        }
+      }
+
+    }
+  }
+
+  &-prelims {
+    @include breakpoint(tablet) {
+      &.layout {
+        flex: 2;
+      }
+      margin-right: rem(10px);
+    }
+  }
+
+  &-marking {
+    @include breakpoint(mobile) {
+      &.layout {
+        flex-direction: column;
+      }
+    }
+
+    li {
+      &:not(:last-of-type) {
+        &:after {
+          content: "";
+          margin-left: rem(45px);
+          @include breakpoint(mobile) {
+            margin-left: rem(55px);
+          }
+        }
+      }
+
+      &:nth-of-type(1) {
+        list-style-image: url("../../assets/svgs/question.svg");
+      }
+
+      &:nth-of-type(2) {
+        list-style-image: url("../../assets/svgs/file.svg");
+      }
+
+      &:nth-of-type(3) {
+        list-style-image: url("../../assets/svgs/clock.svg");
+      }
+
+      text-align: left;
+
+      span {
+        top: -2px;
+      }
+    }
+  }
+
+  &-unlock {
+    button {
+      border: 1px solid $light-blue;
+      border-radius: 4px;
+      width: 140px;
+      @include breakpoint(mobile) {
+        width: 100px;
+      }
+    }
+  }
+
+  &-mob-layout {
+    @include breakpoint(tablet) {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      padding-right: rem(15px);
+    }
+
+  }
+}
+
+.tabs {
+  overflow-x: auto;
+  white-space: nowrap;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include breakpoint(tablet) {
+    border-bottom: 1px solid $grey-1;
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+    border-bottom: 1px solid $white;
+
+    &:last-of-type {
+      margin-right: 10px;
+    }
+
+    &:hover, &:focus, &:active {
+      color: $light-blue;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-bottom: 1.5px solid $light-blue;
+      }
+    }
+  }
+}
+
+
+.search-container {
+  z-index: z(input-button);
+  @include breakpoint(minXlTablet) {
+    max-width: 155px;
+    height: 32px;
+    border: 1px solid $grey-2;
+    border-radius: 4px;
+    margin-right: rem(20px);
+  }
+  @include breakpoint(tablet) {
+    max-width: 18px;
+    height: 18px;
+    margin-left: 5px;
+  }
+
+  input[type="search"] {
+    @include breakpoint(minXlTablet) {
+      margin: 0 auto;
+      width: 100%;
+      border: 0;
+      padding-left: rem(35px);
+    }
+
+    + label {
+      left: 10px;
+      top: 4px;
+      width: 17px;
+      height: 17px;
+    }
+
+    @include breakpoint(tablet) {
+      opacity: 0;
+      + label {
+        top: -3px;
+        left: 0;
+      }
+    }
+  }
+}
+

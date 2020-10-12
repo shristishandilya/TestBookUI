@@ -1,0 +1,123 @@
+$white: #fff;
+$grey-0: #fcfcfc;
+$grey-1: #dfe4e8;
+$grey-2: #d5d7d9;
+$grey-3: #90a9b5; //#86a1ae
+$grey-4: #646F79;
+$grey-5: #3B4A54;
+$black: #000;
+
+$light-green: #25CD71;
+$dark-blue: #3681FD;
+$light-blue: #0AD0F4;
+$theme-blue: #0AD0F4;
+$theme-pink: #FF5D26;
+$shadow-1: rgba(117, 138, 172, 0.070171);
+
+//card shade
+$shade-1: #F6FAF8;
+$shade-2: #F4F7FC;
+$shade-3: #FCF5F4;
+$shade-4: #F6F0F5;
+$shade-5: rgba(255, 239, 215, 0.6);
+
+//breakpoints
+
+/*------------------------------------*\
+    breakpoint vars
+\*------------------------------------*/
+$break-320: 20em;
+$break-480: 30em;
+$break-768: 48em;
+$break-769: 48.0625em;
+$break-1024: 64em;
+$break-1025: 64.0625em;
+$break-1824: 114em;
+
+/*------------------------------------*\
+    breakpoint mixin
+\*------------------------------------*/
+@mixin breakpoint($point) {
+  @if $point == xlTablet {
+    @media (max-width: $break-1024) {
+      @content;
+    }
+  }
+
+  @if $point == tablet {
+    @media (max-width: $break-768) {
+      @content;
+    }
+  } @else if $point == desktop {
+    @media (min-width: $break-1025) {
+      @content;
+    }
+  } @else if $point == minXlTablet {
+    @media (min-width: $break-769) {
+      @content;
+    }
+  }
+
+    // Smartphones (portrait and landscape)
+  @else if $point == mobile {
+    @media only screen and (min-device-width: $break-320) and (max-device-width: $break-480) {
+      @content;
+    }
+  }
+
+    // Large screens
+  @else if $point == desktopLarge {
+    @media only screen and (min-width: $break-1824) {
+      @content;
+    }
+  }
+
+    // iPhone 4
+  @else if $point == iphone4 {
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (min-device-pixel-ratio: 1.5) {
+      @content;
+    }
+  }
+}
+
+// z-index layers
+$z-layers: (
+  'wallpaper' : 0,
+  'input-label': 0,
+  'input-button': 1,
+  'page-content' : 1,
+  'page-footer' : 2,
+  'page-header' : 2,
+  'page-navigation' : 3,
+  'modal-window' : 4,
+);
+
+@function z-index($name) {
+  $z: null;
+  @if type-of($z-layers) == map {
+    $z: map-get($z-layers, $name);
+  }
+
+  @for $i from 1 through length($z-layers) {
+    @if nth($z-layers, $i) == $name {
+      $z: $i;
+    }
+  }
+
+  @return $z;
+}
+
+
+// mixins cant be called inside media query
+@function z($name) {
+  @return z-index($name);
+}
+
+// shortcut to calculate rem
+@function rem($size) {
+  @return $size / 16px * 1rem;
+}
+
+
+
